@@ -12,15 +12,15 @@ app.use(
   })
 );
 
-// const server = http.createServer(app);
-// const io = socketIO(server);
-
-// io.on("connection", client => {
-//   client.on('update:client', () => {
-//     client.broadcast.emit('update:server', true);
-//   })
-//   client.on("disconnect", () => console.log("Client disconnected"));
-// });
+const server=app.listen(8000, () => console.log("The server is all fired up on port 8000"));
+const io = require('socket.io')(server, { cors: true });
+io.on("connection",socket=>{
+    console.log("Nice to meet you. (shake hand)")
+   
+    socket.on("client",data=>{
+        io.emit("server",data)
+    })
+})
 
 
 app.use(express.json());
@@ -29,4 +29,4 @@ app.use(express.urlencoded({extended:true}));
 require("./server/routes/user.routes")(app);
 require("./server/routes/polls.routes")(app);
 
-app.listen(port, () => console.log("listining on port", port));
+// app.listen(port, () => console.log("listining on port", port));

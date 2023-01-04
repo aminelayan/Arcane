@@ -106,7 +106,7 @@ const NavBar = (props) => {
             color="black"
             fontSize="1.5rem"
             fontFamily="Franklin Gothic Medium"
-            style={{marginTop:"2px" }}
+            style={{marginTop:"15px" }}
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             <Link to = {'/'} style= {{textDecoration:"none",fontWeight:"bold",color:"black" , border:"2px #c9ad98 solid",padding:"2px"}} >ARCANE</Link>

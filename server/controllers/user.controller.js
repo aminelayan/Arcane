@@ -30,7 +30,7 @@ class UserController {
               if (passwordIsValid) {
                 res
                   .cookie("usertoken", jwt.sign({ _id: user._id }, secret, {}))
-                  .json({ user });
+                  .json({user,msg:"tanas"});
               } else {
                 console.log(user.password);
                 res.json({ msg: "invalid login attempt-password incorrect" });

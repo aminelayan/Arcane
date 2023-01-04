@@ -89,7 +89,6 @@ return (
                 <Button type="submit" variant="contained" color="primary">Add A Poll</Button>
                 <Button  href='/' style={{backgroundColor:"#3F50B5", color:"white",marginLeft:"1rem"}}>Cancel</Button>
                 {errors.map((msg, index) => <p key={index}>{msg}</p>)}</div>
-               
             </form>
     </div>
 )

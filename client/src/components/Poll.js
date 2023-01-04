@@ -4,9 +4,12 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Modal, Radio, message } from 'antd';
 import NavBar from './NavBar'
+import io from 'socket.io-client';
 
 const Poll = () => {
     const [poll,setPoll]=useState({})
+    const [x,setX]=useState(0)
+    const [socket] = useState(() => io(':8000'));
     const navigate=useNavigate()
     const {id} = useParams()
     const [loggedInUser, setLoggedInUser] = useState(null);
@@ -51,22 +54,30 @@ const Poll = () => {
 
 const updateVote= (tanas) =>{
     axios.put("http://localhost:8000/api/polls/"+id,{votes1:tanas+1})
+    .then(res=>{x==0?setX(1):setX(0)
+      socket.emit("client",res.data)})
     setVisible(true)
 }
 
 const updateVote2 = (tanas) =>{
         axios.put("http://localhost:8000/api/polls/"+id,{votes2:tanas+1})
+        .then(res=>{x==0?setX(1):setX(0)
+          socket.emit("client",res.data)})
         setVisible(true);
     }
 
 
 const updateVote3 = (tanas) =>{
         axios.put("http://localhost:8000/api/polls/"+id,{votes3:tanas+1})
+        .then(res=>{x==0?setX(1):setX(0)
+          socket.emit("client",res.data)})
         setVisible(true);
 }
 
 const updateVote4 = (tanas) =>{
         axios.put("http://localhost:8000/api/polls/"+id,{votes4:tanas+1})
+        .then(res=>{x==0?setX(1):setX(0)
+          socket.emit("client",res.data)})
         setVisible(true);
     }
 

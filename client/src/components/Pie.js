@@ -6,8 +6,11 @@ import axios from 'axios';
 import { sizeWidth } from '@mui/system';
 import NavBar from './NavBar';
 import { Button } from 'antd';
+import io from 'socket.io-client';
 
 const Pie = (props) => {
+    const [x,setX]=useState(0)
+    const [socket] = useState(() => io(':8000'));
     const {id} =useParams();
     const [question, setQuestion] = useState({})
     const [loaded,setLoaded] = useState(false)
@@ -18,9 +21,14 @@ const Pie = (props) => {
         .then (res =>{
             setQuestion(res.data)
             setLoaded(true)
+            socket.on('server',data => {
+                x==0?setX(1):setX(0)
+                console.log(data)
         })
+    })
         .catch(err=>console.error(err))
-    },[])
+    },[x])
+
 
 
 
@@ -77,7 +85,7 @@ const parseChartdata = () => {
             <h2 style={{marginTop:"1rem"}}>Results for : {question.question}</h2>
             {loaded?<Chart  type="pie" data={chartData} style={{ position: 'center', width: props.w || "400px",marginTop:"2rem" }} />:<p>wait</p>}
             
-            <Button>Home</Button>
+            <Button href='/' style={{marginTop:"2rem"}}>Home</Button>
             </div>
 
         </div>

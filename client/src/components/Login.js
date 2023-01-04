@@ -26,7 +26,7 @@ const Login = () => {
       .then((res) => {
         console.log('----',res);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        if (res != null) {
+        if (res.data.msg == "tanas") {
           navigate("/dashboard");
         } else {
           setErrormsg(res.data.msg);
