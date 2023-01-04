@@ -42,8 +42,8 @@ To run this project, you will need to go to the root folder and Client Folder ea
 ## Screenshots
 
 # Welcome Page 
-![App Screenshot](https://i.ibb.co/vJ5TcnC/Screen-Recording-2022-10-15-at-6-10-57-PM-Adobe-Express.gif)
-- This is the Welcome page for the Doctor which has an introduction to the website
+![App Screenshot]//
+- This is the Welcome page for the Project.
 # Sign in 
 ![App Screenshot](https://i.ibb.co/9twQrC0/sign-in.png)
 -This is the Login page for the User so will get the access to create the polls and check the poll created by the user
@@ -53,9 +53,6 @@ To run this project, you will need to go to the root folder and Client Folder ea
 # All Polls
 ![App Screenshot](https://i.ibb.co/phBS0t1/Polls.png)
 -This page contains a table displays all the Polls created and their creator  
-# 
-![App Screenshot](https://i.ib
--This page will show all the information about specific patient and allows the user to edit the patient information 
 
 
 ## Created By
